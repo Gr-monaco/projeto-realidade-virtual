@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
   public GameObject timerTextObject;
   public GameObject pointsTextObject;
   public GameObject endGameTextObject;
+  public GameObject resetButton;
   public GameObject player;
   private Transform playerTransform;
 
@@ -51,14 +52,17 @@ public class GameManager : MonoBehaviour
   {
     endGame = true;
     endGameTextObject.SetActive(true);
+    resetButton.SetActive(true);
     endGameText(textoDeFim);
     timeRemaining = 0;
 
   }
 
-  public void checkIfPlayerFell(){
-    if (playerTransform.position.y < -3f){
-        endGameWithText("Jogador caiu!");
+  public void checkIfPlayerFell()
+  {
+    if (playerTransform.position.y < -3f)
+    {
+      endGameWithText("Jogador caiu!");
     }
   }
 
@@ -73,5 +77,16 @@ public class GameManager : MonoBehaviour
   public void endGameText(string textToEndGame)
   {
     endGameFieldText.text = textToEndGame;
+  }
+
+  public void novoJogo()
+  {
+    playerTransform.position = new Vector3(0, 0, 0);
+    playerTransform.rotation = Quaternion.identity;
+    timeRemaining = 30;
+    endGameTextObject.SetActive(false);
+    resetButton.SetActive(false);
+    endGame = false;
+
   }
 }
