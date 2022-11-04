@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
   public GameObject pointsTextObject;
   public GameObject endGameTextObject;
   public GameObject player;
+  private Transform playerTransform;
+
   private Text timerText;
   private Text pointsText;
   private Text endGameFieldText;
@@ -21,6 +23,8 @@ public class GameManager : MonoBehaviour
     timerText = timerTextObject.GetComponent<Text>();
     pointsText = pointsTextObject.GetComponent<Text>();
     endGameFieldText = endGameTextObject.GetComponent<Text>();
+    playerTransform = player.GetComponent<Transform>();
+
     endGameTextObject.SetActive(false);
     pointsText.text = "0";
   }
