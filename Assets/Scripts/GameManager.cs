@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
   public GameObject pointsTextObject;
   public GameObject endGameTextObject;
   public GameObject player;
+  private Transform playerTransform;
+
   private Text timerText;
   private Text pointsText;
   private Text endGameFieldText;
@@ -21,6 +23,7 @@ public class GameManager : MonoBehaviour
     timerText = timerTextObject.GetComponent<Text>();
     pointsText = pointsTextObject.GetComponent<Text>();
     endGameFieldText = endGameTextObject.GetComponent<Text>();
+    playerTransform = player.GetComponent<Transform>();
     endGameTextObject.SetActive(false);
     pointsText.text = "0";
   }
@@ -28,6 +31,7 @@ public class GameManager : MonoBehaviour
   void Update()
   {
     updateTimer();
+    checkIfPlayerFell();
     timerText.text = timeRemaining.ToString("0.00");
   }
 
@@ -39,7 +43,6 @@ public class GameManager : MonoBehaviour
       if (timeRemaining < 0)
       {
         endGameWithText("Acabou o tempo!");
-        timeRemaining = 0;
       }
     }
   }
@@ -49,6 +52,14 @@ public class GameManager : MonoBehaviour
     endGame = true;
     endGameTextObject.SetActive(true);
     endGameText(textoDeFim);
+    timeRemaining = 0;
+
+  }
+
+  public void checkIfPlayerFell(){
+    if (playerTransform.position.y < -3f){
+        endGameWithText("Jogador caiu!");
+    }
   }
 
   public void updatePoint(int pointToAdd)
