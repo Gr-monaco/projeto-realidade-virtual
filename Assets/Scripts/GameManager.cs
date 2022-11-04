@@ -87,6 +87,7 @@ public class GameManager : MonoBehaviour
     endGameTextObject.SetActive(false);
     resetButton.SetActive(false);
     endGame = false;
+    pointsText.text = "0";
 
     CoinBehavior[] moedas = Object.FindObjectsOfType<CoinBehavior>();
     foreach(CoinBehavior moeda in moedas){
