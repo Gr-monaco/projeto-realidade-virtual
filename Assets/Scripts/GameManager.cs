@@ -82,6 +82,7 @@ public class GameManager : MonoBehaviour
   public void novoJogo()
   {
     playerTransform.position = new Vector3(0, 0, 0);
+    playerTransform.rotation = Quaternion.identity;
     timeRemaining = 30;
     endGameTextObject.SetActive(false);
     resetButton.SetActive(false);
