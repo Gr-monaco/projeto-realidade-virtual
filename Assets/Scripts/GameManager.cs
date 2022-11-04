@@ -88,5 +88,9 @@ public class GameManager : MonoBehaviour
     resetButton.SetActive(false);
     endGame = false;
 
+    CoinBehavior[] moedas = Object.FindObjectsOfType<CoinBehavior>();
+    foreach(CoinBehavior moeda in moedas){
+        moeda.reabilitarMoeda();
+    }
   }
 }
