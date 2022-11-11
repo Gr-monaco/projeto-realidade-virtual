@@ -83,6 +83,7 @@ public class GameManager : MonoBehaviour
   {
     playerTransform.position = new Vector3(0, 0, 0);
     playerTransform.rotation = Quaternion.identity;
+    player.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
     timeRemaining = 30;
     endGameTextObject.SetActive(false);
     resetButton.SetActive(false);
