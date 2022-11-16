@@ -93,5 +93,11 @@ public class GameManager : MonoBehaviour
     foreach(CoinBehavior moeda in moedas){
         moeda.reabilitarMoeda();
     }
+
+    //Não sei se vai ter varios lugares para ganhar
+    WinBehavior[] vencers = Object.FindObjectsOfType<WinBehavior>();
+    foreach(WinBehavior win in vencers){
+      win.reabilitar();
+    }
   }
 }
